@@ -1,0 +1,30 @@
+<style>
+  .LogoWithText {
+    width: auto;
+    height: 1.0em;
+    vertical-align: middle;
+
+  }
+</style>
+
+
+
+<div align="center" class='container'>
+  <div class="page-header">
+
+    <h1> YouTube Search
+      <img src="http://icons.iconarchive.com/icons/iconsmind/outline/256/Youtube-icon.png" class="LogoWIthText">
+      <img style="float: right;" *ngIf="loading" src='' />
+    </h1>
+  </div>
+
+  <div class="row">
+    <div class="input-group input-group-lg col-md-12">
+      <app-search-box (loading)="loading = $event" (results)="updateResults($event)"></app-search-box>
+    </div>
+  </div>
+
+  <div class="row">
+    <app-search-result *ngFor="let result of results" [result]="result"></app-search-result>
+  </div>
+</div>
